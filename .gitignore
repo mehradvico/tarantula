@@ -1,0 +1,37 @@
+## .NET
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+
+## Node / SDK
+node_modules/
+sdk/web/dist/
+
+## Proprietary font files (licensed from FontIran, must not be redistributed in git)
+assets/fonts/*.woff2
+assets/fonts/*.woff
+assets/fonts/*.ttf
+assets/fonts/*.otf
+
+## Secrets and local files
+.env
+*.local
+appsettings.*.local.json
+
+## Nuxt console
+console/.nuxt/
+console/.output/
+console/public/fonts/*.woff2
+console/node_modules/
+console/public/sdk/
+
+## Production secrets
+deploy/.env.prod
+deploy/*.tar
+deploy/*.tar.gz
+
+## Deploy script local files
+scripts/.env.deploy
+scripts/.deploy-credential.xml

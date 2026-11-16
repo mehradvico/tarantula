@@ -1,0 +1,85 @@
+/*
+ * Tarantula design tokens: iOS (Liquid Glass era) semantics in black and orange.
+ * See docs/design/IOS_DESIGN_NOTES.md for the rules behind them.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Backgrounds: Apple's dark-mode system backgrounds (base, then elevated surfaces) */
+  --bg: #000000;
+  --surface-1: #1c1c1e;
+  --surface-2: #2c2c2e;
+  --surface-3: #3a3a3c;
+
+  /* Labels: Apple's label hierarchy on dark (primary, secondary, tertiary, quaternary) */
+  --label: #ffffff;
+  --label-2: rgb(235 235 245 / 0.62);
+  --label-3: rgb(235 235 245 / 0.34);
+  --label-4: rgb(235 235 245 / 0.18);
+
+  --separator: rgb(84 84 88 / 0.65);
+  --separator-soft: rgb(84 84 88 / 0.34);
+
+  /* Tint: the brand orange. -text is the lighter variant for text on dark (contrast). */
+  --tint: #ff6a00;
+  --tint-text: #ff8a3d;
+  --tint-press: #e55f00;
+  --tint-fill: rgb(255 106 0 / 0.16);
+  --tint-fill-strong: rgb(255 106 0 / 0.28);
+  --on-tint: #000000; /* text on orange is black: white on #ff6a00 fails contrast */
+
+  /* System colours for meaning */
+  --ok: #30d158;
+  --warn: #ffd60a;
+  --bad: #ff453a;
+  --info: #64d2ff;
+
+  /* Liquid Glass (regular variant): translucent, blurred, with an inner highlight */
+  --glass-bg: rgb(28 28 30 / 0.55);
+  --glass-bg-strong: rgb(28 28 30 / 0.78);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-highlight: rgb(255 255 255 / 0.16);
+  --glass-blur: 28px;
+  --glass-shadow: 0 12px 44px rgb(0 0 0 / 0.5);
+
+  /* Shape: radii are concentric (inner = outer - padding) */
+  --r-xl: 28px;
+  --r-lg: 22px;
+  --r-md: 16px;
+  --r-sm: 12px;
+  --r-pill: 999px;
+
+  /* Layout */
+  --gap: 12px;
+  --sidebar-w: 288px;
+  --sidebar-rail: 84px;
+  --header-h: 68px;
+  --target: 44px; /* minimum touch target */
+
+  /* Type: Apple text styles, sizes in rem (1rem = 16px) so larger text settings scale everything */
+  --font-ui: 'Yekan Bakh', Vazirmatn, Tahoma, Arial, sans-serif;
+  --t-large-title: 2.125rem; /* 34 */
+  --t-title-1: 1.75rem; /* 28 */
+  --t-title-2: 1.375rem; /* 22 */
+  --t-title-3: 1.25rem; /* 20 */
+  --t-headline: 1.0625rem; /* 17 */
+  --t-body: 1.0625rem; /* 17 */
+  --t-callout: 1rem; /* 16 */
+  --t-subhead: 0.9375rem; /* 15 */
+  --t-footnote: 0.8125rem; /* 13 */
+  --t-caption: 0.75rem; /* 12 */
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Accessibility: when the system asks for less transparency or more contrast, glass becomes solid. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root {
+    --glass-bg: #1c1c1e;
+    --glass-bg-strong: #1c1c1e;
+    --glass-border: rgb(255 255 255 / 0.28);
+    --glass-blur: 0px;
+    --label-2: rgb(235 235 245 / 0.8);
+    --label-3: rgb(235 235 245 / 0.6);
+  }
+}

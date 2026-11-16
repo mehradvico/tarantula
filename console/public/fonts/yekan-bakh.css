@@ -1,0 +1,6 @@
+﻿/* Yekan Bakh (licensed, proprietary): the .woff2 files are copied here from assets/fonts and are not committed. */
+@font-face { font-family: 'Yekan Bakh'; font-weight: 400; font-display: swap; src: url('/fonts/YekanBakh-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 600; font-display: swap; src: url('/fonts/YekanBakh-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 700; font-display: swap; src: url('/fonts/YekanBakh-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 800; font-display: swap; src: url('/fonts/YekanBakh-ExtraBold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 900; font-display: swap; src: url('/fonts/YekanBakh-Black.woff2') format('woff2'); }

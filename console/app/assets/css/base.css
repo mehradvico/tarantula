@@ -1,0 +1,71 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--label);
+  font-family: var(--font-ui);
+  font-size: var(--t-body);
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ambient background: gives the glass something to refract. Orange light top-right, a faint web, deep black elsewhere. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(60rem 36rem at 92% -6%, rgb(255 106 0 / 0.2), transparent 62%),
+    radial-gradient(44rem 30rem at 4% 108%, rgb(255 106 0 / 0.1), transparent 60%),
+    var(--bg);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/web.svg') top left / cover no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+input { font: inherit; color: inherit; }
+
+:focus-visible { outline: 3px solid var(--tint-text); outline-offset: 2px; border-radius: var(--r-sm); }
+
+/* Liquid Glass: only for the navigation/control layer (sidebar, header, tab bar, popovers). */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.8);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.8);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+}
+.glass-strong { background: var(--glass-bg-strong); }
+
+/* Content layer: plain elevated surfaces (never glass) */
+.card {
+  background: var(--surface-1);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--separator-soft);
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

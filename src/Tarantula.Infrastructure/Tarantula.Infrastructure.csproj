@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Tarantula.Application\Tarantula.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClickHouse.Client" Version="7.*" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.*" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tarantula.Infrastructure.Tests" />
+  </ItemGroup>
+</Project>
+
+

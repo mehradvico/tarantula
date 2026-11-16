@@ -1,0 +1,14 @@
+# Public collect endpoint. ONLY the SDK's write path is exposed; /v1/live and /v1/business (read key) stay internal.
+t.pastil.pet {
+	encode zstd gzip
+	@collect {
+		method POST OPTIONS
+		path /v1/collect
+	}
+	handle @collect {
+		reverse_proxy 127.0.0.1:5080
+	}
+	handle {
+		respond "not found" 404
+	}
+}

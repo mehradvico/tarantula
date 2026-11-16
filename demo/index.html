@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تارانتولا — صفحه‌ی آزمایشی</title>
+  <link rel="stylesheet" href="../assets/fonts/yekan-bakh.css">
+  <link rel="icon" href="../console/public/favicon.ico" sizes="any">
+  <style>
+    body { font-family: var(--font-ui); background: #0a0a0b; color: #f4f4f5; margin: 0; padding: 32px; line-height: 1.8; }
+    h1 { color: #ff6a00; }
+    .card { background: #141416; border: 1px solid #2a2a30; border-radius: 16px; padding: 24px; margin: 16px 0; }
+    button { font-family: inherit; background: #ff6a00; color: #0a0a0b; border: 0; border-radius: 10px; padding: 10px 20px; font-weight: 700; cursor: pointer; margin: 4px; }
+    button.ghost { background: transparent; color: #f4f4f5; border: 1px solid #2a2a30; }
+    code, pre { direction: ltr; text-align: left; background: #1c1c20; padding: 2px 8px; border-radius: 6px; }
+    .tall { height: 1600px; background: linear-gradient(#141416, #1a0f05); border-radius: 16px; padding: 24px; }
+  </style>
+</head>
+<body>
+  <h1>صفحه‌ی آزمایشی تارانتولا</h1>
+
+  <div class="card" id="consent-card">
+    <p>رضایت <b>Consent</b> فعلی: <code id="consent">none</code></p>
+    <button class="ghost" data-consent="none">رد (none)</button>
+    <button class="ghost" data-consent="anonymous">ناشناس</button>
+    <button class="ghost" data-consent="analytics">تحلیلی</button>
+    <button data-consent="full">کامل (full)</button>
+  </div>
+
+  <div class="card">
+    <p>این دکمه‌ها رویداد می‌فرستند. کلیک‌ها خودکار برای هیت‌مپ ثبت می‌شوند.</p>
+    <button id="add-to-cart">افزودن به سبد</button>
+    <button id="identify" class="ghost">ورود (User + Vendor)</button>
+    <button id="logout" class="ghost">خروج</button>
+    <p>برای تست Rage click، سه بار سریع روی این متن غیرقابل‌کلیک کلیک کنید.</p>
+  </div>
+
+  <div class="tall">برای تست عمق اسکرول، به پایین بروید.</div>
+
+  <script src="../sdk/web/dist/tarantula.min.js"></script>
+  <script>
+    // The key is public and only allows writing events. Local development only.
+    tarantula.init({ key: 'tk_dev_local_only', endpoint: 'http://localhost:5080', flushIntervalMs: 2000 });
+
+    const show = () => (document.getElementById('consent').textContent = tarantula.getConsent());
+    show();
+    document.querySelectorAll('[data-consent]').forEach((b) =>
+      b.addEventListener('click', () => { tarantula.setConsent(b.dataset.consent); show(); }));
+    document.getElementById('add-to-cart').addEventListener('click', () =>
+      tarantula.track('add_to_cart', { sku: 'DOG-FOOD-1', price: 450000 }));
+    document.getElementById('identify').addEventListener('click', () => tarantula.identify('user-42', 'vendor-7'));
+    document.getElementById('logout').addEventListener('click', () => tarantula.reset());
+  </script>
+</body>
+</html>

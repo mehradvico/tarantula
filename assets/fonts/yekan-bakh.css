@@ -1,0 +1,14 @@
+/*
+ * Yekan Bakh (یکان بخ), the UI font of Tarantula.
+ * It is a proprietary font licensed from FontIran, so the .woff2 files are NOT in git (see .gitignore).
+ * Put the licensed files next to this CSS: YekanBakh-{Light,Regular,SemiBold,Bold,ExtraBold,Black}.woff2.
+ * Until they exist, every page falls back to Vazirmatn (free, OFL) and then system fonts.
+ */
+@font-face { font-family: 'Yekan Bakh'; font-weight: 300; font-style: normal; font-display: swap; src: url('./YekanBakh-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 400; font-style: normal; font-display: swap; src: url('./YekanBakh-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 600; font-style: normal; font-display: swap; src: url('./YekanBakh-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 700; font-style: normal; font-display: swap; src: url('./YekanBakh-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 800; font-style: normal; font-display: swap; src: url('./YekanBakh-ExtraBold.woff2') format('woff2'); }
+@font-face { font-family: 'Yekan Bakh'; font-weight: 900; font-style: normal; font-display: swap; src: url('./YekanBakh-Black.woff2') format('woff2'); }
+
+:root { --font-ui: 'Yekan Bakh', Vazirmatn, Tahoma, Arial, sans-serif; }

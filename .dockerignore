@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/node_modules/
+console/
+sdk/
+demo/
+docs/
+assets/
+tests/
+.git/
+.claude/
+*.md
+**/.env*

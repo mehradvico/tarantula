@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <!-- Local secrets (the Pastil read-only connection string) live in user secrets, outside the repository. -->
+    <UserSecretsId>tarantula-ingest-api</UserSecretsId>
+    <!-- Microsoft.Data.SqlClient refuses to run in globalization-invariant mode (the repo default). -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tarantula.Application\Tarantula.Application.csproj" />
+    <ProjectReference Include="..\Tarantula.Infrastructure\Tarantula.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
